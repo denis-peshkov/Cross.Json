@@ -11,7 +11,7 @@
     <projectUrl>https://github.com/denis-peshkov/Cross.Json</projectUrl>
     <repository type="git" url="https://github.com/denis-peshkov/Cross.Json" />
     <readme>docs\README.md</readme>
-    <icon>icon.svg</icon>
+    <icon>icon.png</icon>
     <releaseNotes>
       Initial version.
     </releaseNotes>
@@ -26,6 +26,6 @@
   <files>
     <file src="..\Cross.Json\bin\Release\net7.0\Cross.Json*.* " target="lib\net7.0" />
     <file src="..\README.md" target="docs\" />
-    <file src="..\icon.svg" target="" />
+    <file src="..\icon.png" target="" />
   </files>
 </package>
