@@ -18,9 +18,6 @@
     <description>Written on C#.</description>
     <tags>NetCore</tags>
     <dependencies>
-      <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="7.0.15" />
-      <dependency id="Microsoft.Extensions.Options.ConfigurationExtensions" version="7.0.0" />
-      <dependency id="StackExchange.Redis.MultiplexerPool" version="2.0.1" />
     </dependencies>
   </metadata>
   <files>
