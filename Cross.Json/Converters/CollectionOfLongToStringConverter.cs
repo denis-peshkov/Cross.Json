@@ -17,11 +17,14 @@ public class CollectionOfLongToStringConverter : JsonConverter<IReadOnlyCollecti
                     if (reader.TokenType == JsonTokenType.EndArray)
                         break;
 
-                    list.Add(JsonSerializer.Deserialize<string>(ref reader, _jsonOptions));
+                    var item = JsonSerializer.Deserialize<string>(ref reader, _jsonOptions);
+                    if (!string.IsNullOrEmpty(item))
+                        list.Add(item);
                 }
+
                 return list;
             default:
-                return JsonSerializer.Deserialize<IReadOnlyCollection<string>>(ref reader, options);
+                return JsonSerializer.Deserialize<IReadOnlyCollection<string>>(ref reader, options) ?? Array.Empty<string>();
         }
     }
 
@@ -36,5 +39,4 @@ public class CollectionOfLongToStringConverter : JsonConverter<IReadOnlyCollecti
 
         writer.WriteEndArray();
     }
-
 }
