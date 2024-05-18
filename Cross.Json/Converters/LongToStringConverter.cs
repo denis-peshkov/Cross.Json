@@ -5,7 +5,7 @@ public class LongToStringConverter : JsonConverter<string>
     public override string Read(ref Utf8JsonReader reader, Type type, JsonSerializerOptions options)
     {
         if (reader.TokenType != JsonTokenType.Number)
-            return reader.GetString();
+            return reader.GetString() ?? string.Empty;
 
         var span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
 
@@ -17,7 +17,7 @@ public class LongToStringConverter : JsonConverter<string>
         throw new InvalidOperationException($"'{data}' is not a correct expected value") { Source = "NumericToStringConverter" };
     }
 
-    public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options) =>
+    public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options)
         // write the string value as is
-        writer.WriteStringValue(value);
+        => writer.WriteStringValue(value);
 }
